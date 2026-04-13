@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shortcut Helper</title>
+  <link rel="stylesheet" href="sidebar.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- ヘッダー -->
+    <header class="header">
+      <div class="header-title">
+        <span class="header-icon">⌨️</span>
+        <h1>Shortcut Helper</h1>
+      </div>
+    </header>
+
+    <!-- 検索バー -->
+    <div class="search-wrapper">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="操作・ショートカットを検索..."
+        />
+        <button class="search-clear" id="searchClear" title="クリア">✕</button>
+      </div>
+    </div>
+
+    <!-- 検索結果 -->
+    <div class="search-results" id="searchResults" style="display:none;">
+      <div class="search-results-header">検索結果</div>
+      <div id="searchResultsList"></div>
+    </div>
+
+    <!-- タブナビゲーション -->
+    <div class="tabs-nav-wrapper" id="tabsNavWrapper">
+      <div class="tabs-nav" id="tabsNav">
+        <!-- タブはJSで動的生成 -->
+      </div>
+      <button class="add-tab-btn" id="addTabBtn" title="アプリを追加">＋</button>
+    </div>
+
+    <!-- ショートカット一覧 -->
+    <div class="shortcuts-panel" id="shortcutsPanel">
+      <div class="shortcuts-header">
+        <span class="shortcuts-count" id="shortcutsCount"></span>
+        <button class="add-shortcut-btn" id="addShortcutBtn">
+          <span>＋ ショートカットを追加</span>
+        </button>
+      </div>
+      <ul class="shortcuts-list" id="shortcutsList"></ul>
+    </div>
+  </div>
+
+  <!-- アプリ追加モーダル -->
+  <div class="modal-overlay" id="addTabModal" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>アプリを追加</h2>
+        <button class="modal-close" id="closeAddTabModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="newAppName">アプリ名</label>
+          <input type="text" id="newAppName" placeholder="例：Notion" maxlength="20" />
+        </div>
+        <div class="form-group">
+          <label for="newAppEmoji">アイコン（絵文字）</label>
+          <input type="text" id="newAppEmoji" placeholder="例：📝" maxlength="2" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelAddTab">キャンセル</button>
+        <button class="btn btn-primary" id="confirmAddTab">追加</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ショートカット追加/編集モーダル -->
+  <div class="modal-overlay" id="addShortcutModal" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="shortcutModalTitle">ショートカットを追加</h2>
+        <button class="modal-close" id="closeAddShortcutModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="newAction">操作内容</label>
+          <input type="text" id="newAction" placeholder="例：保存" maxlength="30" />
+        </div>
+        <div class="form-group">
+          <label for="newKey">ショートカットキー</label>
+          <input type="text" id="newKey" placeholder="例：Ctrl+S" maxlength="30" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelAddShortcut">キャンセル</button>
+        <button class="btn btn-primary" id="confirmAddShortcut">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- アプリ削除確認モーダル -->
+  <div class="modal-overlay" id="deleteTabModal" style="display:none;">
+    <div class="modal modal-small">
+      <div class="modal-header">
+        <h2>アプリを削除</h2>
+        <button class="modal-close" id="closeDeleteTabModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="deleteTabMessage"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelDeleteTab">キャンセル</button>
+        <button class="btn btn-danger" id="confirmDeleteTab">削除</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="sidebar.js"></script>
+</body>
+</html>
