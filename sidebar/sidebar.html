@@ -8,52 +8,52 @@
 </head>
 <body>
   <div class="container">
+
     <!-- ヘッダー -->
     <header class="header">
-      <div class="header-title">
-        <span class="header-icon">⌨️</span>
-        <h1>Shortcut Helper</h1>
-      </div>
+      <span class="header-icon">⌨️</span>
+      <h1>Shortcut Helper</h1>
     </header>
 
     <!-- 検索バー -->
     <div class="search-wrapper">
       <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input
-          type="text"
-          id="searchInput"
-          class="search-input"
-          placeholder="操作・ショートカットを検索..."
-        />
+        <input type="text" id="searchInput" class="search-input" placeholder="操作・ショートカットを検索..." />
         <button class="search-clear" id="searchClear" title="クリア">✕</button>
       </div>
     </div>
 
-    <!-- 検索結果 -->
-    <div class="search-results" id="searchResults" style="display:none;">
-      <div class="search-results-header">検索結果</div>
-      <div id="searchResultsList"></div>
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+
+      <!-- 縦タブサイドバー -->
+      <nav class="tabs-sidebar">
+        <div class="tabs-list" id="tabsList"></div>
+        <button class="add-tab-btn" id="addTabBtn" title="アプリを追加">＋</button>
+      </nav>
+
+      <!-- パネルエリア -->
+      <div class="panel-wrapper">
+
+        <!-- 検索結果オーバーレイ -->
+        <div class="search-results-panel" id="searchResultsPanel">
+          <div class="search-results-header">検索結果</div>
+          <div id="searchResultsList"></div>
+        </div>
+
+        <!-- ショートカット一覧 -->
+        <div class="shortcuts-panel" id="shortcutsPanel">
+          <div class="shortcuts-header">
+            <span class="shortcuts-count" id="shortcutsCount"></span>
+            <button class="add-shortcut-btn" id="addShortcutBtn">＋ 追加</button>
+          </div>
+          <ul class="shortcuts-list" id="shortcutsList"></ul>
+        </div>
+
+      </div>
     </div>
 
-    <!-- タブナビゲーション -->
-    <div class="tabs-nav-wrapper" id="tabsNavWrapper">
-      <div class="tabs-nav" id="tabsNav">
-        <!-- タブはJSで動的生成 -->
-      </div>
-      <button class="add-tab-btn" id="addTabBtn" title="アプリを追加">＋</button>
-    </div>
-
-    <!-- ショートカット一覧 -->
-    <div class="shortcuts-panel" id="shortcutsPanel">
-      <div class="shortcuts-header">
-        <span class="shortcuts-count" id="shortcutsCount"></span>
-        <button class="add-shortcut-btn" id="addShortcutBtn">
-          <span>＋ ショートカットを追加</span>
-        </button>
-      </div>
-      <ul class="shortcuts-list" id="shortcutsList"></ul>
-    </div>
   </div>
 
   <!-- アプリ追加モーダル -->
